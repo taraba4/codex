@@ -524,8 +524,7 @@ h1 .mint {
   transition: transform 0.72s cubic-bezier(0.25, 0.65, 0.22, 1);
 }
 
-.care-card:hover .care-card-inner,
-.care-card:focus-within .care-card-inner {
+.care-card:hover .care-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -552,26 +551,37 @@ h1 .mint {
 
 .care-tap-hint {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   z-index: 2;
   display: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #8a95a5;
   align-items: center;
-  gap: 6px;
-  height: 28px;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: rgba(29, 47, 76, 0.82);
-  color: #f7fbff;
-  font-size: 11px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.care-tap-hint::before {
-  content: "↻";
-  font-size: 13px;
+.care-tap-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.care-tap-hint::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid rgba(138, 149, 165, 0.65);
+  opacity: 0;
+  animation: care-hint-ripple 1.8s ease-out infinite;
 }
 
 .care-card-front {
@@ -655,11 +665,22 @@ h1 .mint {
   0%,
   100% {
     transform: scale(1);
-    opacity: 0.94;
+    opacity: 0.78;
   }
   50% {
-    transform: scale(1.06);
-    opacity: 1;
+    transform: scale(1.1);
+    opacity: 0.98;
+  }
+}
+
+@keyframes care-hint-ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.72;
+  }
+  100% {
+    transform: scale(1.34);
+    opacity: 0;
   }
 }
 
