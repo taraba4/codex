@@ -154,9 +154,16 @@
         </div>
 
         <div class="care-grid">
-          <article class="care-card">
+          <article
+            class="care-card care-card-first"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Показать подробности карточки Диагностический центр"
+          >
             <div class="care-card-inner">
               <div class="care-card-face care-card-front">
+                <span class="care-tap-hint" aria-hidden="true">Нажмите</span>
                 <svg class="care-icon" viewBox="0 0 64 64" aria-hidden="true">
                   <circle cx="32" cy="32" r="25"></circle>
                   <path d="M18 44h28M24 20h16v10H24zM21 44v-7a11 11 0 0 1 22 0v7"></path>
@@ -170,7 +177,13 @@
             </div>
           </article>
 
-          <article class="care-card">
+          <article
+            class="care-card"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Показать подробности карточки Восстановление суставов"
+          >
             <div class="care-card-inner">
               <div class="care-card-face care-card-front">
                 <svg class="care-icon" viewBox="0 0 64 64" aria-hidden="true">
@@ -186,7 +199,13 @@
             </div>
           </article>
 
-          <article class="care-card">
+          <article
+            class="care-card"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Показать подробности карточки Производство протезов"
+          >
             <div class="care-card-inner">
               <div class="care-card-face care-card-front">
                 <svg class="care-icon" viewBox="0 0 64 64" aria-hidden="true">
@@ -203,7 +222,13 @@
             </div>
           </article>
 
-          <article class="care-card">
+          <article
+            class="care-card"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Показать подробности карточки Вспомогательное оборудование"
+          >
             <div class="care-card-inner">
               <div class="care-card-face care-card-front">
                 <svg class="care-icon" viewBox="0 0 64 64" aria-hidden="true">
@@ -233,6 +258,43 @@
           burger.setAttribute("aria-expanded", String(isOpen));
         });
       }
+
+      const careCards = Array.from(document.querySelectorAll(".care-card"));
+      const isTouchLike = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+      const closeCareCards = () => {
+        careCards.forEach((card) => {
+          card.classList.remove("is-flipped");
+          card.setAttribute("aria-pressed", "false");
+        });
+      };
+
+      careCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          if (!isTouchLike()) return;
+
+          const willOpen = !card.classList.contains("is-flipped");
+          closeCareCards();
+          if (willOpen) {
+            card.classList.add("is-flipped");
+            card.setAttribute("aria-pressed", "true");
+          }
+        });
+
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!isTouchLike()) return;
+        if (!event.target.closest(".care-card")) {
+          closeCareCards();
+        }
+      });
     </script>
   </body>
 </html>
