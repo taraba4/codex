@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CYBRON — Революционные протезные решения</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="logo-wrap">
+          <div class="logo-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="logo-text">
+            <span class="brand">CYBRON</span>
+            <span class="tagline">Протезы и искусственные конечности</span>
+          </div>
+        </div>
+
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="menu-panel">
+          <nav class="nav" aria-label="Главная навигация">
+            <a href="#" class="active">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Продукция</a>
+            <a href="#">Блог</a>
+            <a href="#">Контакты</a>
+          </nav>
+
+          <button class="appointment" type="button">Записаться на приём <span>→</span></button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">РЕШЕНИЯ ДЛЯ ЖИЗНИ</p>
+        <h1>
+          <span class="mint">Революционные</span>
+          <span>протезные</span>
+          <span>решения</span>
+        </h1>
+        <p class="description">
+          Наши современные протезные устройства разработаны для обеспечения оптимального комфорта,
+          функциональности и долговечности, позволяя вам легко выполнять повседневные задачи.
+          Протезные технологии помогают воплощать это в реальность.
+        </p>
+        <div class="actions">
+          <button class="btn btn-dark" type="button">Заказать онлайн <span>→</span></button>
+          <button class="btn btn-mint" type="button">Наши услуги <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-block">
+      <div class="about-inner">
+        <div class="about-visuals">
+          <div class="about-badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120" role="img" aria-label="О клинике">
+              <defs>
+                <path id="badgeCircle" d="M60,60 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0" />
+              </defs>
+              <circle cx="60" cy="60" r="38"></circle>
+              <text>
+                <textPath href="#badgeCircle">
+                  О КЛИНИКЕ • О КЛИНИКЕ • О КЛИНИКЕ • О КЛИНИКЕ •
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <img
+            class="about-small-image"
+            src="public/images/clinic-corridor.jpg"
+            alt="Коридор клиники"
+          />
+          <img
+            class="about-main-image"
+            src="public/images/bionic-leg.jpg"
+            alt="Бионический протез ноги"
+          />
+        </div>
+
+        <div class="about-content">
+          <p class="about-kicker">О КОМПАНИИ</p>
+          <h2 class="about-title">Высокочувствительные бионические протезы</h2>
+          <p class="about-subtitle">Область, где технологии встречаются с человечностью</p>
+          <p class="about-text">
+            Протезирование — это быстро развивающееся направление биомедицинской инженерии, которое
+            фокусируется на проектировании, разработке и изготовлении искусственных конечностей и
+            других устройств, помогающих людям с физическими ограничениями.
+          </p>
+
+          <div class="about-footer">
+            <button class="about-btn" type="button">Подробнее <span>→</span></button>
+            <div class="about-phone">
+              <a class="about-phone-icon" href="tel:+78001050025" aria-label="Позвонить">✆</a>
+              <a class="about-phone-number" href="tel:+78001050025">8-800-10-500-25</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const body = document.body;
+
+      if (burger) {
+        burger.addEventListener("click", () => {
+          const isOpen = body.classList.toggle("menu-open");
+          burger.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
+    </script>
+  </body>
+</html>
