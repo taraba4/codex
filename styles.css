@@ -214,6 +214,8 @@ h1 .mint {
   min-width: 230px;
   border: 0;
   border-radius: 999px;
+  -webkit-appearance: none;
+  appearance: none;
   font-family: inherit;
   font-size: 14px;
   line-height: 1;
@@ -335,7 +337,7 @@ h1 .mint {
 .about-title {
   margin: 22px 0 18px;
   color: #1e2d43;
-  font-size: 58px;
+  font-size: 46px;
   line-height: 1;
   letter-spacing: -0.028em;
   font-weight: 800;
@@ -411,6 +413,209 @@ h1 .mint {
   font-weight: 700;
 }
 
+.care-block {
+  background: #e8eff2;
+  padding: 74px 0 82px;
+  overflow: hidden;
+}
+
+.care-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: stretch;
+}
+
+.care-left {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.care-title {
+  margin: 0;
+  color: #1e2d43;
+  font-size: 46px;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  font-weight: 800;
+}
+
+.care-title span {
+  display: block;
+}
+
+.care-title .mint {
+  color: var(--mint);
+}
+
+.care-description {
+  margin: 24px 0 0;
+  max-width: 640px;
+  color: #25364e;
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 500;
+}
+
+.care-photo-wrap {
+  margin-top: auto;
+  padding-top: 28px;
+  max-width: 645px;
+  position: relative;
+}
+
+.care-main-image {
+  width: 100%;
+  height: 248px;
+  object-fit: cover;
+  display: block;
+}
+
+.care-badge {
+  position: absolute;
+  right: -58px;
+  top: -76px;
+  z-index: 3;
+  width: 146px;
+  height: 146px;
+}
+
+.care-badge svg {
+  width: 100%;
+  height: 100%;
+  animation: badge-spin 14s linear infinite;
+}
+
+.care-badge circle {
+  fill: none;
+  stroke: #2e3f57;
+  stroke-width: 1px;
+}
+
+.care-badge text {
+  fill: #2e3f57;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.care-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  perspective: 1400px;
+}
+
+.care-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.72s cubic-bezier(0.25, 0.65, 0.22, 1);
+}
+
+.care-card:hover .care-card-inner,
+.care-card:focus-within .care-card-inner {
+  transform: rotateY(180deg);
+}
+
+.care-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  padding: 34px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.care-card-front {
+  background: #f8f9f9;
+}
+
+.care-icon {
+  width: 88px;
+  height: 88px;
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 18px;
+}
+
+.care-card h3 {
+  margin: 0;
+  color: #1f2f47;
+  font-size: 18px;
+  line-height: 1.24;
+  font-weight: 800;
+}
+
+.care-card p {
+  margin: 14px 0 0;
+  color: #5f7084;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.care-card-back {
+  transform: rotateY(180deg);
+  color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.care-card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(19, 30, 49, 0.56);
+}
+
+.care-card-back p {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  max-width: 280px;
+}
+
+.care-card-back p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.care-card-back-1 {
+  background-image: url("public/images/rehab-lab.jpg");
+}
+
+.care-card-back-2 {
+  background-image: url("public/images/joint-xray.jpg");
+}
+
+.care-card-back-3 {
+  background-image: url("public/images/bionic-leg.jpg");
+}
+
+.care-card-back-4 {
+  background-image: url("public/images/support-equipment.jpg");
+}
+
 @media (max-width: 1366px) {
   .topbar-inner {
     height: 82px;
@@ -484,7 +689,7 @@ h1 .mint {
   }
 
   .about-title {
-    font-size: 50px;
+    font-size: 42px;
   }
 
   .about-subtitle {
@@ -504,6 +709,61 @@ h1 .mint {
   .about-phone-number {
     font-size: 15px;
   }
+
+  .care-inner {
+    max-width: 1160px;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .care-title {
+    font-size: 42px;
+  }
+
+  .care-description {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .care-photo-wrap {
+    margin-top: auto;
+    padding-top: 20px;
+    max-width: 560px;
+  }
+
+  .care-main-image {
+    height: 220px;
+  }
+
+  .care-badge {
+    right: -50px;
+    top: -68px;
+    width: 128px;
+    height: 128px;
+  }
+
+  .care-grid {
+    gap: 16px;
+  }
+
+  .care-card-face {
+    padding: 28px 22px 24px;
+  }
+
+  .care-icon {
+    width: 74px;
+    height: 74px;
+    margin-bottom: 14px;
+  }
+
+  .care-card h3 {
+    font-size: 16px;
+  }
+
+  .care-card p {
+    font-size: 13px;
+  }
+
 }
 
 @media (max-width: 1100px) {
@@ -670,6 +930,54 @@ h1 .mint {
   .about-phone-number {
     font-size: 16px;
   }
+
+  .care-block {
+    padding: 56px 0 60px;
+  }
+
+  .care-inner {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .care-left {
+    min-height: 0;
+  }
+
+  .care-title {
+    font-size: 46px;
+    line-height: 1.04;
+  }
+
+  .care-description {
+    max-width: 100%;
+  }
+
+  .care-photo-wrap {
+    margin-top: 22px;
+    padding-top: 0;
+    max-width: 100%;
+  }
+
+  .care-main-image {
+    height: 360px;
+  }
+
+  .care-badge {
+    right: 12px;
+    top: -58px;
+    width: 112px;
+    height: 112px;
+  }
+
+  .care-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .care-card {
+    aspect-ratio: 1 / 0.9;
+  }
 }
 
 @media (max-width: 740px) {
@@ -704,8 +1012,9 @@ h1 .mint {
 
   h1 {
     margin: 18px 0 22px;
-    font-size: 56px;
+    font-size: clamp(44px, 11.8vw, 56px);
     line-height: 0.96;
+    letter-spacing: -0.016em;
   }
 
   .description {
@@ -727,6 +1036,7 @@ h1 .mint {
     min-width: 0;
     padding: 0 12px;
     font-size: 13px;
+    white-space: nowrap;
   }
 
   .about-block {
@@ -739,36 +1049,36 @@ h1 .mint {
   }
 
   .about-visuals {
-    min-height: 478px;
+    min-height: 492px;
     padding-left: 0;
   }
 
   .about-main-image {
     position: absolute;
-    top: 64px;
-    right: 4px;
-    width: min(52vw, 240px);
-    max-width: 240px;
-    min-width: 194px;
-    height: 310px;
+    top: 58px;
+    right: 24px;
+    width: min(50vw, 224px);
+    max-width: calc(100% - 48px);
+    min-width: 188px;
+    height: 318px;
     margin: 0;
   }
 
   .about-small-image {
-    left: 22px;
-    bottom: 22px;
-    width: min(58vw, 250px);
-    max-width: 250px;
-    min-width: 186px;
-    height: 205px;
+    left: 16px;
+    bottom: 24px;
+    width: min(62vw, 258px);
+    max-width: 258px;
+    min-width: 190px;
+    height: 212px;
     aspect-ratio: auto;
   }
 
   .about-badge {
-    left: -2px;
-    top: 108px;
-    width: 90px;
-    height: 90px;
+    left: 16px;
+    top: 212px;
+    width: 88px;
+    height: 88px;
   }
 
   .about-badge text {
@@ -776,44 +1086,47 @@ h1 .mint {
   }
 
   .about-kicker {
-    font-size: 11px;
-    letter-spacing: 0.4em;
+    font-size: 10px;
+    letter-spacing: 0.34em;
   }
 
   .about-content {
-    max-width: 445px;
+    max-width: 100%;
   }
 
   .about-title {
-    font-size: 50px;
-    line-height: 1.02;
-    margin: 18px 0 18px;
+    font-size: clamp(34px, 9vw, 42px);
+    line-height: 1.07;
+    letter-spacing: -0.016em;
+    margin: 14px 0 14px;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
 
   .about-subtitle {
-    font-size: 17px;
-    line-height: 1.42;
-    margin: 0 0 22px;
+    font-size: 15px;
+    line-height: 1.45;
+    margin: 0 0 16px;
   }
 
   .about-text {
     font-size: 13px;
-    line-height: 1.74;
+    line-height: 1.68;
     margin: 0;
   }
 
   .about-footer {
-    margin-top: 38px;
+    margin-top: 30px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    gap: 24px;
   }
 
   .about-btn {
     width: auto;
-    min-width: 190px;
-    height: 54px;
-    padding: 0 28px;
+    min-width: 184px;
+    height: 52px;
+    padding: 0 24px;
     font-size: 14px;
   }
 
@@ -832,6 +1145,74 @@ h1 .mint {
     font-size: 16px;
     letter-spacing: 0.01em;
   }
+
+  .care-block {
+    padding: 44px 0 48px;
+  }
+
+  .care-inner {
+    padding: 0 14px;
+    gap: 24px;
+  }
+
+  .care-title {
+    font-size: clamp(36px, 10vw, 46px);
+  }
+
+  .care-description {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.66;
+  }
+
+  .care-photo-wrap {
+    margin-top: 18px;
+  }
+
+  .care-main-image {
+    height: 290px;
+  }
+
+  .care-badge {
+    right: 10px;
+    top: -48px;
+    width: 94px;
+    height: 94px;
+  }
+
+  .care-badge text {
+    font-size: 8px;
+  }
+
+  .care-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .care-card {
+    aspect-ratio: auto;
+    min-height: 250px;
+  }
+
+  .care-card-face {
+    padding: 24px 18px 20px;
+  }
+
+  .care-icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 12px;
+  }
+
+  .care-card h3 {
+    font-size: 22px;
+  }
+
+  .care-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.58;
+  }
 }
 
 @media (max-width: 560px) {
@@ -845,53 +1226,113 @@ h1 .mint {
   }
 
   h1 {
-    font-size: 52px;
+    font-size: 46px;
   }
 
   .description {
     font-size: 12px;
   }
 
-  .about-visuals {
-    min-height: 432px;
-  }
-
-  .about-main-image {
-    top: 56px;
-    right: 0;
-    width: min(50vw, 220px);
-    height: 286px;
-  }
-
-  .about-small-image {
-    left: 14px;
-    bottom: 18px;
-    width: min(56vw, 224px);
-    height: 188px;
-  }
-
-  .about-badge {
-    top: 98px;
-    width: 84px;
-    height: 84px;
-  }
-
-  .about-title {
-    font-size: 44px;
-  }
-}
-
-@media (max-width: 420px) {
   .actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
 
   .btn {
+    flex: 0 0 auto;
     width: 100%;
+    min-width: 0;
+    height: 52px;
+    font-size: 16px;
+  }
+
+  .about-visuals {
+    min-height: 444px;
+  }
+
+  .about-main-image {
+    top: 54px;
+    right: 20px;
+    width: min(50vw, 200px);
+    max-width: calc(100% - 40px);
+    height: 290px;
+  }
+
+  .about-small-image {
+    left: 8px;
+    bottom: 20px;
+    width: min(58vw, 220px);
+    height: 190px;
+  }
+
+  .about-badge {
+    left: 10px;
+    top: 194px;
+    width: 80px;
+    height: 80px;
   }
 
   .about-title {
-    font-size: 36px;
+    font-size: clamp(32px, 8.6vw, 38px);
+  }
+
+  .care-title {
+    font-size: 38px;
+  }
+
+  .care-main-image {
+    height: 240px;
+  }
+
+  .care-card {
+    min-height: 220px;
+  }
+
+  .care-card h3 {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .hero-content {
+    padding: 90px 14px 74px;
+  }
+
+  h1 {
+    font-size: 42px;
+    line-height: 0.98;
+  }
+
+  .btn {
+    font-size: 15px;
+  }
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  .care-title {
+    font-size: 34px;
+  }
+
+  .care-description {
+    font-size: 12px;
+  }
+
+  .care-card h3 {
+    font-size: 18px;
+  }
+
+  .care-card p {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .about-title,
+  .care-title {
+    font-size: 46px;
   }
 }
